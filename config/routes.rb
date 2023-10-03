@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   resources :types
   resources :subtypes
   resources :weaknesses
-  resources :sets
+  resources :cardsets
 end
