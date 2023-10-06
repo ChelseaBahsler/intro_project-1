@@ -32,4 +32,4 @@ cardsets.each do |c|
   end
 end
 
-# pokemons = Pokemon::Card.limit(2000)
+# pokemons = Pokemon::Card.where(page: 8, pageSize: 250)

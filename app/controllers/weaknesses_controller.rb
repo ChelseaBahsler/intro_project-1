@@ -1,4 +1,7 @@
 class WeaknessesController < ApplicationController
+  belongs_to :card
+  belongs_to :type
+
   def index
   end
 
