@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_05_184901) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_09_200543) do
+  create_table "cards", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp"
+    t.string "artist"
+    t.text "text"
+    t.string "imageurl"
+    t.integer "supertypes_id", null: false
+    t.integer "cardsets_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cardsets_id"], name: "index_cards_on_cardsets_id"
+    t.index ["supertypes_id"], name: "index_cards_on_supertypes_id"
+  end
+
   create_table "cardsets", force: :cascade do |t|
     t.string "name"
     t.string "series"
@@ -46,5 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_05_184901) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cards", "cardsets", column: "cardsets_id"
+  add_foreign_key "cards", "supertypes", column: "supertypes_id"
   add_foreign_key "locations", "cardsets"
 end

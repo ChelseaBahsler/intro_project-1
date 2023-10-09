@@ -25,11 +25,13 @@ end
 
 cardsets = Pokemon::Set.all
 cardsets.each do |c|
-  set = Cardset.create(name: c)
+  set = Cardset.create(name: c.name, series: c.series, releasedate: c.releaseDate)
 
-  rand(1..10).times do
-    set.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
-  end
+  # rand(1..10).times do
+  #   set.locations.create(latitude: Faker::Address.latitude, longitude: Faker::Address.longitude)
+  # end
 end
+
+
 
 # pokemons = Pokemon::Card.where(page: 8, pageSize: 250)
