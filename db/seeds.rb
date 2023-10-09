@@ -44,13 +44,13 @@ pokemons.each do |pokemon|
   new_card.save
 
   new_subs = pokemon.subtypes
-  new_subs.each do |n|
-    CardSubtypes.create(card: new_card, subtype: Subtype.where(:name => n).first)
+  new_subs.each do |ns|
+    CardSubtypes.create(card: new_card, subtype: Subtype.where(:name => ns).first)
   end
 
   new_types = pokemon.types
-  new_types.each do |n|
-    CardTypes.create(card: new_card, type: Type.where(:name => n).first)
+  new_types.each do |nt|
+    CardTypes.create(card: new_card, type: Type.where(:name => nt).first)
   end
 
 end
