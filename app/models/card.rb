@@ -1,4 +1,4 @@
 class Card < ApplicationRecord
-  belongs_to :supertypes
-  belongs_to :cardsets
+  belongs_to :supertype
+  belongs_to :cardset
 end

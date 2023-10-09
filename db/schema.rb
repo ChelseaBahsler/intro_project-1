@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_09_200543) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_09_203635) do
+  create_table "card_subtypes", force: :cascade do |t|
+    t.integer "card_id", null: false
+    t.integer "subtype_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_card_subtypes_on_card_id"
+    t.index ["subtype_id"], name: "index_card_subtypes_on_subtype_id"
+  end
+
+  create_table "card_types", force: :cascade do |t|
+    t.integer "Card_id", null: false
+    t.integer "Type_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Card_id"], name: "index_card_types_on_Card_id"
+    t.index ["Type_id"], name: "index_card_types_on_Type_id"
+  end
+
   create_table "cards", force: :cascade do |t|
     t.string "name"
     t.integer "hp"
@@ -60,6 +78,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_200543) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "card_subtypes", "cards"
+  add_foreign_key "card_subtypes", "subtypes"
+  add_foreign_key "card_types", "Cards"
+  add_foreign_key "card_types", "Types"
   add_foreign_key "cards", "cardsets", column: "cardsets_id"
   add_foreign_key "cards", "supertypes", column: "supertypes_id"
   add_foreign_key "locations", "cardsets"
