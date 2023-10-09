@@ -39,18 +39,18 @@ pokemons = Pokemon::Card.where(page: 8, pageSize: 250)
 
 pokemons.each do |pokemon|
   new_card = Card.new(name: pokemon.name, hp: pokemon.hp, artist: pokemon.artist, text: pokemon.flavor_text, imageurl: pokemon.images.small)
-  new_card.supertype = pokemon.supertype
-  new_card.cardset = pokemon.set.name
+  new_card.supertype = Supertype.where(:name => pokemon.supertype).first
+  new_card.cardset = Cardset.where(:name => pokemon.set.name).first
   new_card.save
 
   new_subs = pokemon.subtypes
   new_subs.each do |n|
-    CardSubTypes.create(card: new_card, subtype: n)
+    CardSubtypes.create(card: new_card, subtype: Subtype.where(:name => n).first)
   end
 
   new_types = pokemon.types
   new_types.each do |n|
-    CardTypes.create(card: new_card, type: n)
+    CardTypes.create(card: new_card, type: Type.where(:name => n).first)
   end
 
 end
