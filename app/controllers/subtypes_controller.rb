@@ -1,5 +1,5 @@
 class SubtypesController < ApplicationController
-  validates :name presence: true, uniqueness: true
+
 
   def index
   end
