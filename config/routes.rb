@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/about'
   root "cards#index"
 
   resources :cards
