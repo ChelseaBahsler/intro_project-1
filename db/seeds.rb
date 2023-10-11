@@ -35,7 +35,9 @@ cardsets.each do |c|
   # end
 end
 
-pokemons = Pokemon::Card.where(page: 4, pageSize: 250)
+# Need to adjust this so it doesn't pull all the cards.
+# pokemons = Pokemon::Card.where(page: 1, pageSize: 250)
+pokemons = Pokemon::Card.all
 
 pokemons.each do |pokemon|
   new_card = Card.new(name: pokemon.name, hp: pokemon.hp, artist: pokemon.artist, text: pokemon.flavor_text, imageurl: pokemon.images.small)
