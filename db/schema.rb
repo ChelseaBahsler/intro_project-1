@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_09_203635) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_171210) do
   create_table "card_subtypes", force: :cascade do |t|
     t.integer "card_id", null: false
     t.integer "subtype_id", null: false
@@ -21,12 +21,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_203635) do
   end
 
   create_table "card_types", force: :cascade do |t|
-    t.integer "Card_id", null: false
-    t.integer "Type_id", null: false
+    t.integer "card_id", null: false
+    t.integer "type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Card_id"], name: "index_card_types_on_Card_id"
-    t.index ["Type_id"], name: "index_card_types_on_Type_id"
+    t.index ["card_id"], name: "index_card_types_on_card_id"
+    t.index ["type_id"], name: "index_card_types_on_type_id"
   end
 
   create_table "cards", force: :cascade do |t|
@@ -35,12 +35,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_203635) do
     t.string "artist"
     t.text "text"
     t.string "imageurl"
-    t.integer "supertypes_id", null: false
-    t.integer "cardsets_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cardsets_id"], name: "index_cards_on_cardsets_id"
-    t.index ["supertypes_id"], name: "index_cards_on_supertypes_id"
+    t.integer "supertype_id"
+    t.integer "cardset_id"
+    t.index ["cardset_id"], name: "index_cards_on_cardset_id"
+    t.index ["supertype_id"], name: "index_cards_on_supertype_id"
   end
 
   create_table "cardsets", force: :cascade do |t|
@@ -80,9 +80,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_09_203635) do
 
   add_foreign_key "card_subtypes", "cards"
   add_foreign_key "card_subtypes", "subtypes"
-  add_foreign_key "card_types", "Cards"
-  add_foreign_key "card_types", "Types"
-  add_foreign_key "cards", "cardsets", column: "cardsets_id"
-  add_foreign_key "cards", "supertypes", column: "supertypes_id"
+  add_foreign_key "card_types", "cards"
+  add_foreign_key "card_types", "types"
+  add_foreign_key "cards", "cardsets"
+  add_foreign_key "cards", "supertypes"
   add_foreign_key "locations", "cardsets"
 end
