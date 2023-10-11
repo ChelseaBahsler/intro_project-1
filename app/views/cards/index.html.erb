@@ -1,2 +1,7 @@
-<h1>Cards#index</h1>
-<p>Find me in app/views/cards/index.html.erb</p>
+<h1>Pokemon Cards</h1>
+
+<% @cards.each do |card| %>
+    <img src= <%= card.imageurl%> alt= <%= card.name %>>
+    <%= link_to card.name, card %>
+<% end %>
+<%= paginate @cards %>
