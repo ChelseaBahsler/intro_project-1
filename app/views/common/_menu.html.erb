@@ -1,5 +1,5 @@
-<header>
-  <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+<header class="has-shadow">
+  <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
     <div class="navbar-start">
       <div class="navbar-item">
         <%= link_to 'Home', root_path%>
@@ -7,18 +7,15 @@
       <div class="navbar-item">
         <%= link_to 'About', 'pages/about'%>
       </div>
+    </div>
+    <div class="navbar-end">
       <div class="navbar-item">
-
-       <div class="field has-addons">
-        <p class="control">
-          <input class="input" type="text" placeholder="Find a post">
-        </p>
-        <p class="control">
-          <button class="button">
-            Search
-          </button>
-        </p>
-      </div>
+        <div class="control">
+            <input class="input" type="text" placeholder="Find a post">
+        </div>
+        <div class="control">
+          <button class="button">Search</button>
+        </div>
     </div>
   </nav>
 </header>

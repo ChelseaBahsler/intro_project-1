@@ -4,9 +4,18 @@
     <h1 class="title">Pokemon Cards</h1>
   </div>
 </section>
-
 <!-- Each card is displayed in a nested tile layout -->
-<div class="columns is-multiline">
-  <%= render partial: 'card', collection: @cards %>
-</div>
-<%= paginate @cards %>
+<section class="section">
+  <div class="columns is-multiline">
+    <%= render partial: 'card', collection: @cards %>
+  </div>
+</section>
+<section class="section has-background-primary	">
+  <nav class="level ">
+    <div class="level-item">
+      <div>
+        <%= paginate @cards %>
+      </div>
+    </div>
+  </nav>
+</section>
