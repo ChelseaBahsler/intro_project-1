@@ -1,0 +1,13 @@
+<!-- Partial displays the cards -->
+<div class="column is-one-fifth">
+  <div class="box card">
+    <div class="card-image">
+      <figure>
+        <%= image_tag(card.imageurl, alt: card.name) %>
+      </figure>
+    </div>
+    <div class="card-content is-centered">
+      <p class="title is-4"><%= link_to card.name, card %></p>
+    </div>
+  </div>
+</div>
