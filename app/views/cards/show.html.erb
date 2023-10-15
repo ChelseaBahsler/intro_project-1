@@ -4,6 +4,8 @@
       <div class="columns">
         <div class="column is-two-fifths">
           <div class="card-image p-5">
+
+          <!-- Displays the card image -->
             <figure class="image is-2by4">
               <%= image_tag(@card.imageurl, alt: @card.name) %>
             </figure>
@@ -12,21 +14,35 @@
         <div class="column p-5 is-vcentered">
           <div class="column p-4 has-background-primary-light">
             <div class="card-content">
+
+              <!-- Displays card name and the supertype-->
               <h1 class="title"><%= @card.name %></h1>
               <p class="subtitle"><%= @card.supertype.name %></p>
-              <p><strong>HP:</strong> <%= @card.hp %></p>
+
+              <!-- ERB Conditional - shows hp if the field isn't null -->
+              <% if @card.hp != nil %>
+                <p><strong>HP:</strong> <%= @card.hp %></p>
+              <% end %>
+
+              <!-- Displays artist and the card.text -->
               <p><strong>Artist:</strong> <%= @card.artist %></p>
               <p><strong>Description:</strong></p>
               <p><%= @card.text %></p>
             </div>
             <div class="card-content">
+
+              <!-- Displays details related to the card from the Set table -->
               <h2 class="title">Set Details</h2>
               <div class="block">
                 <p><strong>Set name:</strong> <%= @card.cardset.name %></p>
                 <p><strong>Series:</strong> <%= @card.cardset.series %></p>
                 <p><strong>Release date:</strong> <%= @card.cardset.releasedate %></p>
-                <p><strong>Card Type:</strong> <%= @card.card_types %></p>
               </div>
+            </div>
+
+            <!-- INCORRECT - trying to display the card's types -->
+            <div class="card-content">
+              <p><strong>Card Type:</strong> <%= @card.card_types %></p>
             </div>
           </div>
         </div>
