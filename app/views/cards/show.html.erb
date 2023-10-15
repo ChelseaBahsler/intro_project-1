@@ -1,7 +1,36 @@
 <section class="section">
-  <div class="level">
-    <div class="level-item is-centered">
-      <%= render @card %>
+  <div class="container">
+    <div class="card">
+      <div class="columns">
+        <div class="column is-two-fifths">
+          <div class="card-image p-5">
+            <figure class="image is-2by4">
+              <%= image_tag(@card.imageurl, alt: @card.name) %>
+            </figure>
+          </div>
+        </div>
+        <div class="column p-5 is-vcentered">
+          <div class="column p-4 has-background-primary-light">
+            <div class="card-content">
+              <h1 class="title"><%= @card.name %></h1>
+              <p class="subtitle"><%= @card.supertype.name %></p>
+              <p><strong>HP:</strong> <%= @card.hp %></p>
+              <p><strong>Artist:</strong> <%= @card.artist %></p>
+              <p><strong>Description:</strong></p>
+              <p><%= @card.text %></p>
+            </div>
+            <div class="card-content">
+              <h2 class="title">Set Details</h2>
+              <div class="block">
+                <p><strong>Set name:</strong> <%= @card.cardset.name %></p>
+                <p><strong>Series:</strong> <%= @card.cardset.series %></p>
+                <p><strong>Release date:</strong> <%= @card.cardset.releasedate %></p>
+                <p><strong>Card Type:</strong> <%= @card.card_types.type %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

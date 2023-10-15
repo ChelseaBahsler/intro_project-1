@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-
   def index
     # @cards = Card.includes(:card_set).all
     @cards = Card.order(:name).page params[:page]
