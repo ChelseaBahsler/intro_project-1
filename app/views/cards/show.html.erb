@@ -5,7 +5,6 @@
   <div class="column is-two-fifths">
     <div class="card-image p-5">
       <figure class="image is-2by4">
-
         <!-- Displays the card image -->
         <%= image_tag(@img, alt: @name) %>
       </figure>
@@ -13,11 +12,22 @@
   </div>
   <div class="column p-5 is-vcentered">
     <div class="column p-4 has-background-primary-light">
-
       <div class="card-content">
         <!-- Displays card name and the supertype-->
         <h1 class="title"><%= @name %></h1>
-        <p class="subtitle"><%= @supertype %></p>
+
+        <!-- Pokemon / Trainer / Energy -->
+        <p><strong>Supertype:</strong> <%= @supertype %></p>
+
+         <!-- Stage -->
+        <% for subtype in @card.subtypes %>
+          <p><strong>Subtype:</strong> <%= subtype.name %><p>
+        <% end %>
+
+        <!-- ERB Conditional - Displays the many-to-many table types information -->
+        <% if @supertype == "Pokémon" %>
+          <%= render partial: 'types' %>
+        <% end %>
 
         <!-- ERB Conditional - shows hp if the field isn't null -->
         <% if @hp != nil %>
@@ -32,9 +42,6 @@
           <p><strong>Description:</strong></p>
           <p><%= @description %></p>
         <% end %>
-
-        <!-- Displays the many-to-many table types information -->
-        <%= render partial: 'types' %>
       </div>
       <!-- Displays details related to the card from the Set table -->
       <div class="card-content block">
