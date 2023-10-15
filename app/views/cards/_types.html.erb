@@ -1,0 +1,22 @@
+<!-- ERB Conditional - singular and plural label for type(s) -->
+<% if @types.length() == 1 %>
+  <p><strong>Type:</strong> <%= @types.name %></p>
+<% else %>
+<!-- showing the types on horizontal level -->
+  <div class="level-left">
+    <div class="level-item">
+      <!-- Types label -->
+      <p><strong>Types:</strong></p>
+
+      <% for type in @types %>
+        <!-- ERB conditional -->
+        <!-- add commas if there's more than one type -->
+        <% if type == @types.last()%>
+          <p><%= type.name %></p>
+        <% else %>
+          <p class="mx-1"><%= type.name %>,</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
