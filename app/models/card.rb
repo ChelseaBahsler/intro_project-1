@@ -9,4 +9,9 @@ class Card < ApplicationRecord
   has_many :subtypes, through: :card_subtypes
 
   validates :name, :artist, :imageurl, presence: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["artist", "cardset_id", "created_at", "hp", "id", "imageurl", "name", "supertype_id", "text",
+     "updated_at"]
+  end
 end

@@ -1,7 +1,7 @@
 class CardsController < ApplicationController
   def index
-    # @cards = Card.includes(:card_set).all
-    @cards = Card.order(:name).page params[:page]
+    @q = Card.ransack(params[:q])
+    @cards = @q.result.order(:name).page params[:page]
   end
 
   def show

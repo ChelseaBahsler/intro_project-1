@@ -5,17 +5,16 @@
         <%= link_to 'Home', root_path%>
       </div>
       <div class="navbar-item">
-        <%= link_to 'About', 'pages/about'%>
+        <%= link_to 'About', pages_about_path%>
       </div>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="control">
-            <input class="input" type="text" placeholder="Find a post">
+        <div class="level">
+          <!-- search form -->
+          <%= render 'cards/form' %>
         </div>
-        <div class="control">
-          <button class="button">Search</button>
-        </div>
+      </div>
     </div>
   </nav>
 </header>

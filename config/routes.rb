@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'pages/about'
+  get "pages/about"
   root "cards#index"
-
   resources :cards
   resources :supertypes
   resources :types
