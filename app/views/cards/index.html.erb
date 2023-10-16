@@ -1,7 +1,21 @@
-<h1>Pokemon Cards</h1>
-
-<% @cards.each do |card| %>
-    <img src= <%= card.imageurl%> alt= <%= card.name %>>
-    <%= link_to card.name, card %>
-<% end %>
-<%= paginate @cards %>
+<!--Title -->
+<section class="content hero is-primary">
+  <div class="hero-body">
+    <h1 class="title">Pokemon Cards</h1>
+  </div>
+</section>
+<!-- Each card is displayed in a nested tile layout -->
+<section class="section">
+  <div class="columns is-multiline">
+    <%= render partial: 'card', collection: @cards %>
+  </div>
+</section>
+<section class="section has-background-primary	">
+  <nav class="level ">
+    <div class="level-item">
+      <div>
+        <%= paginate @cards %>
+      </div>
+    </div>
+  </nav>
+</section>

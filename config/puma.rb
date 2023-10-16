@@ -41,3 +41,7 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Allow puma to be restarted by `bin/rails restart` command.
 plugin :tmp_restart
+
+before_fork do
+  $split_factory.instance_variable_get(:@config).threads.each { |_, t| t.exit }
+end

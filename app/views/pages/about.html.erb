@@ -1,13 +1,34 @@
-<h1>About</h1>
 
-<h2>Datasets</h2>
-<p>I’ll be using the pokemon card data set and faker for location data.
-The card table contains information such as name of the card, the number of hit points, the artist, description text, a URL to the card image.</p>
-<p>A pokemon card can be categorized based on the card set that it was released in, its supertype, type, and subtype.</p>
-<p>A pokemon card can be of none or many different types and subtypes.</p>
-<p>A pokemon card can be only one supertype and is released in one set.</p>
-<p>A card set has information on its name, series, and release date.</p>
-<%# <p>The faker location data is used to generate locations that the set is available to purchase.</p> %>
+<div class="content container mt-6">
+<div class="columns">
+<div class="column">
+  <h1>Datasets</h1>
+  <p>I’ll be using the
+  <%= link_to "pokemon card", "https://docs.pokemontcg.io/", :target => "_blank" %>
+  data set and faker for location data.</p>
 
-<h2>ERD Database Diagram</h2>
-<%= image_tag "ERD Diagram.png", alt: "ERD Diagram" %>
+  <h2>Card Table</h2>
+  <p>The card table contains information such as:</p>
+  <ul>
+    <li>the name of the card</li>
+    <li>the number of hit points</li>
+    <li>the artist</li>
+    <li>the description text</li>
+    <li>a URL to the card image</li>
+  </ul>
+
+  <h2>Categorization</h2>
+  <p>A pokemon card can be categorized based on the card set that it was released in, its supertype, type, and subtype.</p>
+
+  <h2>Associations</h2>
+  <p>A pokemon card can be of different types and subtypes.</p>
+  <p>A pokemon card can be only one supertype and is released in one set.</p>
+  <p>A card set has information on its name, series, and release date.</p>
+  <p>The faker location data is used to generate locations that the set is available to purchase.</p>
+</div>
+<div class="column">
+  <h2>ERD Database Diagram</h2>
+  <%= image_tag "ERD Diagram.png", alt: "ERD Diagram" %>
+</div>
+</div>
+</div>
