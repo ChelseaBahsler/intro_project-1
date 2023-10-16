@@ -1,4 +1,4 @@
 <%= search_form_for(@q, url: cards_path, method: :get, class: 'level') do |f| %>
-  <%= f.search_field :name_i_cont_any, placeholder: "Search", class: 'level-item' %>
+  <%= f.search_field :name_or_artist_or_text_i_cont_any, placeholder: "Search", class: 'level-item' %>
   <%= f.submit class: 'level-item' %>
 <% end %>
