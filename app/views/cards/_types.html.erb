@@ -1,13 +1,13 @@
 <!-- ERB Conditional - singular and plural label for type(s) -->
 <% if @types.length() == 1 %>
-  <% for type in @types %>
+  <% for type in @types%>
     <p><strong>Type:</strong> <%= type.name %></p>
   <% end %>
 <% else %>
 <!-- showing the types on horizontal level -->
   <div class="level-left">
     <div class="level-item">
-      <% for type in @types %>
+      <% for type in @types%>
         <!-- ERB conditional -->
         <!-- add commas if there's more than one type -->
         <% if type == @types.last()%>
