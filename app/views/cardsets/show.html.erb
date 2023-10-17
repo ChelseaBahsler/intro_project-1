@@ -1,2 +1,10 @@
-<h1>Cardsets#show</h1>
-<p>Find me in app/views/cardsets/show.html.erb</p>
+<h1><%= @cardset.name %></h1>
+
+<%token = "?access_token=pk.eyJ1IjoiYmlnam9obmNlbmEiLCJhIjoiY2xudWtrMGRlMGVtejJxbzJwYXp2cjIxZyJ9.TsO844UtjUD8U1wLd4dW0w"%>
+<%baseurl = "https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/"%>
+
+<h2>Locations</h2>
+<% @cardset.locations.each do |location|%>
+<% url = baseurl + location.longitude.to_s + ',' + location.latitude.to_s + ',6/500x300' + token %>
+<img src=<%= url %> alt="temp">
+<%end%>
