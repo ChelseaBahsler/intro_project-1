@@ -5,6 +5,12 @@
   </div>
 </section>
 <!-- Each card is displayed in a nested tile layout -->
+
+<div class="level">
+  <div class="level-item">
+    <h2 class="title is-3">Results: <%= @cards.length() %></h2>
+  </div>
+</div>
 <%= render 'displaycards' %>
 <section class="section has-background-primary	">
   <nav class="level ">
