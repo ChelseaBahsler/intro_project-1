@@ -1,0 +1,6 @@
+<%token = "?access_token=pk.eyJ1IjoiYmlnam9obmNlbmEiLCJhIjoiY2xudWtrMGRlMGVtejJxbzJwYXp2cjIxZyJ9.TsO844UtjUD8U1wLd4dW0w"%>
+<%baseurl = "https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/"%>
+<% @cardset.locations.each do |location|%>
+  <% url = baseurl + location.longitude.to_s + ',' + location.latitude.to_s + ',6/500x300' + token %>
+  <img src=<%= url %> alt="temp">
+<%end%>

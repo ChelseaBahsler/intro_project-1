@@ -2,11 +2,20 @@
   <div class="columns">
     <div class="column">
       <h1>Sets</h1>
-      <ol>
+      <ul style="list-style-type: none;">
         <% @cardsets.each do |set|%>
-          <li><%= link_to set.name, set %> </li>
+          <li><%= link_to set.name, set %></li>
         <%end%>
-      </ol>
+      </ul>
     </div>
   </div>
 </div>
+<section class="section has-background-primary	">
+  <nav class="level ">
+    <div class="level-item">
+      <div>
+        <%= paginate @cardsets %>
+      </div>
+    </div>
+  </nav>
+</section>

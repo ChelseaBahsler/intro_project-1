@@ -1,0 +1,30 @@
+<div class="block">
+  <h2 class="title">Card Details</h2>
+  <p><strong>Supertype:</strong> <%= @supertype %></p>
+  <!-- Stage -->
+  <% for subtype in @card.subtypes %>
+    <p><strong>Subtype:</strong> <%= subtype.name %></p>
+  <% end %>
+  <!-- ERB Conditional - Displays the many-to-many table types information -->
+  <% if @supertype == "Pokémon" %>
+    <%= render partial: 'types' %>
+  <% end %>
+  <!-- ERB Conditional - shows hp if the field isn't null -->
+  <% if @hp != nil %>
+    <p><strong>HP:</strong> <%= @hp %></p>
+  <% end %>
+  <!-- Displays artist -->
+  <p><strong>Artist:</strong> <%= @artist %></p>
+  <!-- ERB Conditional - shows text if the field isn't null -->
+  <% if @description != nil %>
+    <p><strong>Description:</strong></p>
+    <p><%= @description %></p>
+  <% end %>
+</div>
+<!-- Displays details related to the card from the Set table -->
+<div class="block">
+  <h2 class="title">Set Details</h2>
+  <p><strong>Set name:</strong> <%= @cardset.name %></p>
+  <p><strong>Series:</strong> <%= @cardset.series %></p>
+  <p><strong>Release date:</strong> <%= @cardset.releasedate %></p>
+</div>
