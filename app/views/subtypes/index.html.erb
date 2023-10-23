@@ -1,11 +1,14 @@
-
-<div class="container">
-<div class="block">
-  <h1>Subtypes#index</h1>
-  <p>Find me in app/views/subtypes/index.html.erb</p>
-  <p>TESTING</p>
-  <% for subtype in @subtypes %>
-    <p><%= subtype.name %></p>
-  <% end %>
-</div>
+<div class="content container py-5">
+  <div class="columns">
+    <div class="column">
+      <h1 class="title">Subtypes</h1>
+      <div class="mt-5">
+        <ul style="list-style-type: none;">
+          <% for subtype in @subtypes %>
+            <p><%= link_to subtype.name, "/subtypes/#{subtype.id}" %></p>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

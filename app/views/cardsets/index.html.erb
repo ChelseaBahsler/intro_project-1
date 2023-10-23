@@ -1,21 +1,21 @@
-<div class="content container mt-6">
+<div class="content container py-5">
   <div class="columns">
     <div class="column">
-      <h1>Sets</h1>
-      <ul style="list-style-type: none;">
-        <% @cardsets.each do |set|%>
-          <li><%= link_to set.name, set %></li>
-        <%end%>
-      </ul>
+      <h1 class="title">Sets</h1>
+      <div class="mt-5">
+        <ul style="list-style-type: none;">
+          <% @cardsets.each do |set|%>
+            <li><%= link_to set.name, set %></li>
+          <%end%>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
 <section class="section has-background-primary	">
   <nav class="level ">
     <div class="level-item">
-      <div>
-        <%= paginate @cardsets %>
-      </div>
+      <%= paginate @cardsets %>
     </div>
   </nav>
 </section>

@@ -1,7 +1,8 @@
 class CardsController < ApplicationController
   def index
     @q = Card.ransack(params[:q])
-    @cards = @q.result.order(:name).page params[:page]
+    @cards = @q.result.order(:name).page(params[:page])
+    @search_by = :name_or_artist_or_text_i_cont_any
   end
 
   def show
@@ -15,9 +16,5 @@ class CardsController < ApplicationController
     @link_sub = "/subtypes"
     @link_type = "/types"
     @link_cardset = "/cardsets/#{@cardset.id}"
-
-    return unless params[:q].present? and params[:q][:artist_title_eq].present?
-
-    params[:q][:artist_cont_any] = params[:q][:artist_title_eq].split(" ")
   end
 end

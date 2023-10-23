@@ -3,5 +3,7 @@ class SubtypesController < ApplicationController
     @subtypes = Subtype.all
   end
 
-  def show; end
+  def show
+    @subtype = Subtype.find(params[:id])
+  end
 end

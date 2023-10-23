@@ -1,10 +1,14 @@
-<div class="container">
-<div class="block">
-  <h1>Supertypes#index</h1>
-  <p>Find me in app/views/supertypes/index.html.erb</p>
-  <p>TESTING</p>
-  <% for supertype in @supertypes %>
-    <p><%= supertype.name %></p>
-  <% end %>
-</div>
+<div class="content container py-5">
+  <div class="columns">
+    <div class="column">
+      <h1 class="title">Supertypes</h1>
+      <div class="mt-5">
+        <ul style="list-style-type: none;">
+          <% for supertype in @supertypes %>
+            <p><%= link_to supertype.name, "/supertypes/#{supertype.id}" %></p>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

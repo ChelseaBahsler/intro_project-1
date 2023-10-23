@@ -1,9 +1,14 @@
-<div class="container">
-<div class="block">
-  <p>Find me in app/views/types/index.html.erb</p>
-  <p>TESTING</p>
-  <% for type in @types %>
-    <p><%= type.name %></p>
-  <% end %>
-</div>
+<div class="content container py-5">
+  <div class="columns">
+    <div class="column">
+      <h1 class="title">Supertypes</h1>
+      <div class="mt-5">
+        <ul style="list-style-type: none;">
+          <% for type in @types %>
+            <p><%= link_to type.name, "/types/#{type.id}" %></p>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

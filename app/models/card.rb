@@ -11,7 +11,7 @@ class Card < ApplicationRecord
   validates :name, :artist, :imageurl, presence: true
 
   def self.ransackable_associations(auth_object = nil)
-    ["card_subtypes", "card_types", "cardset", "subtypes", "supertype", "types"]
+    ["card_subtypes", "card_types", "cardset", "subtypes", "supertypes", "types"]
   end
 
   def self.ransackable_attributes(auth_object = nil)
