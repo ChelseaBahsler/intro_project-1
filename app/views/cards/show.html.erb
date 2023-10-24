@@ -17,10 +17,10 @@
                 <!-- Displays card name and the supertype-->
                 <h1 class="title"><%= @card.name %></h1>
                 <!-- Pokemon / Trainer / Energy -->
-                <p><strong>Supertype:</strong> <%= link_to @supertype.name, @link_super %></p>
+                <p><strong>Supertype:</strong> <%= link_to @supertype.name, @supertype %></p>
                 <!-- Stage -->
                 <% for subtype in @card.subtypes %>
-                  <p><strong>Subtype:</strong> <%= link_to subtype.name, @link_sub %></p>
+                  <p><strong>Subtype:</strong> <%= link_to subtype.name, subtype %></p>
                 <% end %>
                 <!-- ERB Conditional - Displays the many-to-many table types information -->
                 <% if @supertype == "Pokémon" %>
@@ -41,7 +41,7 @@
               <!-- Displays details related to the card from the Set table -->
               <div class="card-content block">
                 <h2 class="title">Set Details</h2>
-                <p><strong>Set name:</strong> <%= link_to @cardset.name, @link_cardset %></p>
+                <p><strong>Set name:</strong> <%= link_to @cardset.name, @cardset %></p>
                 <p><strong>Series:</strong> <%= @cardset.series %></p>
                 <p><strong>Release date:</strong> <%= @cardset.releasedate %></p>
               </div>

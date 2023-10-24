@@ -11,10 +11,5 @@ class CardsController < ApplicationController
     @supertype = @card.supertype
     @types = @card.types
     @cardset = @card.cardset
-    # links to associated tables
-    @link_super = "/supertypes/#{@supertype.id}"
-    @link_sub = "/subtypes"
-    @link_type = "/types"
-    @link_cardset = "/cardsets/#{@cardset.id}"
   end
 end

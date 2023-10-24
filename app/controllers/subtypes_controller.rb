@@ -5,5 +5,6 @@ class SubtypesController < ApplicationController
 
   def show
     @subtype = Subtype.find(params[:id])
+    @st_cards = Card.all
   end
 end

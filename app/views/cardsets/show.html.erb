@@ -24,9 +24,7 @@
     <div class="column is-full mt-6">
       <h1 class="title">Cards belonging to cardset <%= @cardset.name %></h1>
     </div>
-    <div class="column is-one-fifth">
-      <%= render partial: 'cards/card', collection: @cardset.cards %>
-    </div>
+    <%= render partial: 'cards/card', collection: @cs_cards %>
   </div>
 </div>
 <div class="section"></div>

@@ -1,2 +1,16 @@
-<h1>Types#show</h1>
-<p>Find me in app/views/types/show.html.erb</p>
+<section class="content hero is-info pl-6 mt-4">
+  <div class="hero-body">
+    <h1 class="title"><%= @type.name %></h1>
+  </div>
+</section>
+<div class="container">
+  <!-- Show the Cards belonging to this set -->
+  <div class="columns is-multiline">
+    <div class="column is-full mt-6">
+      <h1 class="title">Cards belonging to cardset <%= @type.name %></h1>
+    </div>
+    <%= render partial: 'cards/card', collection: @cards %>
+  </div>
+</div>
+<div class="section"></div>
+

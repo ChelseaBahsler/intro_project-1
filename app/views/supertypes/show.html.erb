@@ -1,2 +1,10 @@
-<h1>Supertypes#show</h1>
-<p>Find me in app/views/supertypes/show.html.erb</p>
+<div class="container">
+<div class="columns is-multiline">
+  <div class="column is-full mt-6">
+    <h1 class="title">Cards belonging to supertype <%= @st.name %></h1>
+  </div>
+  <%= render partial: 'cards/card', collection: @st_cards %>
+</div>
+</div>
+</div>
+<div class="section"></div>

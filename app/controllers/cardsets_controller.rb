@@ -5,5 +5,6 @@ class CardsetsController < ApplicationController
 
   def show
     @cardset = Cardset.find(params[:id])
+    @cs_cards = Card.where(cardset_id: params[:id]).order(:name)
   end
 end
