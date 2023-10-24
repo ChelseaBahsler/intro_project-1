@@ -21,7 +21,7 @@
                 <!-- Stage -->
                 <%= render 'subtypes' %>
                 <!-- ERB Conditional - Displays the many-to-many table types information -->
-                <% if @supertype.id == 20 %>
+                <% if @supertype.name == "Pokémon" %>
                   <%= render 'types' %>
                 <% end %>
                 <!-- ERB Conditional - shows hp if the field isn't null -->
