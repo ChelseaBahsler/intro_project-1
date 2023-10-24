@@ -23,7 +23,7 @@
                   <p><strong>Subtype:</strong> <%= link_to subtype.name, subtype %></p>
                 <% end %>
                 <!-- ERB Conditional - Displays the many-to-many table types information -->
-                <% if @supertype == "Pokémon" %>
+                <% if @supertype.id == 20 %>
                   <%= render 'types' %>
                 <% end %>
                 <!-- ERB Conditional - shows hp if the field isn't null -->
@@ -50,4 +50,4 @@
         </div>
       </div>
     </div>
-</section>
+  </section>

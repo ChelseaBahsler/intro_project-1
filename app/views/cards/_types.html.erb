@@ -1,7 +1,7 @@
 <!-- ERB Conditional - singular and plural label for type(s) -->
 <% if @types.length() == 1 %>
   <% for type in @types%>
-    <p><strong>Type:</strong> <%= link_to type.name, @link_type + "/#{type.id}"%></p>
+    <p><strong>Type:</strong> <%= link_to type.name, type %></p>
   <% end %>
 <% else %>
   <!-- showing the types on horizontal level -->
