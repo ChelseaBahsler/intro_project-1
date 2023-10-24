@@ -1,8 +1,10 @@
+<section class="content hero is-info pl-6 mt-4">
+  <div class="hero-body">
+    <h1 class="title"><%= @subtype.name %></h1>
+  </div>
+</section>
 <div class="container">
 <div class="columns is-multiline">
-  <div class="column is-full mt-6">
-    <h1 class="title">Cards belonging to subtype <%= @subtype.name %></h1>
-  </div>
   <%= render partial: 'cards/card', collection: @st_cards %>
 </div>
 </div>
