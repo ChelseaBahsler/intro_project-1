@@ -19,7 +19,7 @@
                 <!-- Pokemon / Trainer / Energy -->
                 <p><strong>Supertype:</strong> <%= link_to @supertype.name, @supertype %></p>
                 <!-- Stage -->
-                <% for subtype in @card.subtypes %>
+                <% @card.subtypes.each do |subtype| %>
                   <p><strong>Subtype:</strong> <%= link_to subtype.name, subtype %></p>
                 <% end %>
                 <!-- ERB Conditional - Displays the many-to-many table types information -->
