@@ -1,15 +1,9 @@
 <!--Title -->
-<section class="content hero is-primary">
+<section class="content hero is-primary pl-6 mt-4">
   <div class="hero-body">
     <h1 class="title">Pokemon Cards</h1>
   </div>
 </section>
-<!-- Each card is displayed in a nested tile layout -->
-<div class="level">
-  <div class="level-item">
-    <h2 class="title is-3">Results: <%= @cards.length() %></h2>
-  </div>
-</div>
 <%= render 'displaycards' %>
 <section class="section has-background-primary	">
   <nav class="level ">

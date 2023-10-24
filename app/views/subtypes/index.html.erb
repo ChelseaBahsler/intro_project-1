@@ -1,14 +1,17 @@
-<div class="content container py-5">
-  <div class="columns">
-    <div class="column">
-      <h1 class="title">Subtypes</h1>
-      <div class="mt-5">
-        <ul style="list-style-type: none;">
-          <% for subtype in @subtypes %>
-            <p><%= link_to subtype.name, "/subtypes/#{subtype.id}" %></p>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+<section class="content hero is-primary pl-6 mt-4">
+  <div class="hero-body">
+    <h1 class="title">Subtypes</h1>
+    <p class="subtitle mt-2">Click on one of the subtypes listed below to view a table of all cards that belong to that supertype.</p>
   </div>
+</section>
+<div class="container pt-5 has-text-centered">
+  <div class="columns is-multiline mt-5">
+    <% for subtype in @subtypes %>
+      <div class="column is-half block">
+        <p class="subtitle is-5"><%= link_to subtype.name, subtype %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="section">
 </div>

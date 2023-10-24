@@ -1,19 +1,20 @@
-<div class="content container py-5">
-  <div class="columns">
-    <div class="column">
-      <h1 class="title">Sets</h1>
-      <div class="mt-5">
-        <ul style="list-style-type: none;">
-          <% @cardsets.each do |set|%>
-            <li><%= link_to set.name, set %></li>
-          <%end%>
-        </ul>
+<section class="content hero is-primary pl-6 mt-4">
+  <div class="hero-body">
+    <h1 class="title">Sets</h1>
+    <p class="subtitle mt-2">Click on one of the card sets listed below to view a table of all cards that belong to that card set.</p>
+  </div>
+</section>
+<div class="container pt-5 has-text-centered">
+  <div class="columns is-multiline mt-5">
+    <% for set in @cardsets%>
+      <div class="column is-half block">
+        <p class="subtitle is-5"><%= link_to set.name, set %></p>
       </div>
-    </div>
+    <%end%>
   </div>
 </div>
-<section class="section has-background-primary	">
-  <nav class="level ">
+<section class="section has-background-primary">
+  <nav class="level">
     <div class="level-item">
       <%= paginate @cardsets %>
     </div>

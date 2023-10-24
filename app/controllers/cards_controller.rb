@@ -8,11 +8,11 @@ class CardsController < ApplicationController
   def show
     @card = Card.find(params[:id])
     # associated tables
-    @supertype = @card.supertype.name
+    @supertype = @card.supertype
     @types = @card.types
     @cardset = @card.cardset
     # links to associated tables
-    @link_super = "/supertypes"
+    @link_super = "/supertypes/#{@supertype.id}"
     @link_sub = "/subtypes"
     @link_type = "/types"
     @link_cardset = "/cardsets/#{@cardset.id}"

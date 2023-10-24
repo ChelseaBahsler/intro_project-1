@@ -17,7 +17,7 @@
                 <!-- Displays card name and the supertype-->
                 <h1 class="title"><%= @card.name %></h1>
                 <!-- Pokemon / Trainer / Energy -->
-                <p><strong>Supertype:</strong> <%= link_to @supertype, @link_super %></p>
+                <p><strong>Supertype:</strong> <%= link_to @supertype.name, @link_super %></p>
                 <!-- Stage -->
                 <% for subtype in @card.subtypes %>
                   <p><strong>Subtype:</strong> <%= link_to subtype.name, @link_sub %></p>
