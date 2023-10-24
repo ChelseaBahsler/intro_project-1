@@ -1,0 +1,21 @@
+<!-- ERB Conditional - singular and plural label for type(s) -->
+<% if @card.subtypes.length() == 1 %>
+  <% for type in @card.subtypes%>
+    <p><strong>Subtype:</strong> <%= link_to type.name, type %></p>
+  <% end %>
+<% else %>
+  <!-- showing the types on horizontal level -->
+  <div class="level-left">
+    <div class="level-item">
+      <% for type in @card.subtypes%>
+        <!-- ERB conditional -->
+        <!-- add commas if there's more than one type -->
+        <% if type == @card.subtypes.last()%>
+          <p> <%= link_to type.name, type %></p>
+        <% else %>
+          <p class="mr-1"><strong>Subtype:</strong> <%= link_to type.name, type %>,</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
