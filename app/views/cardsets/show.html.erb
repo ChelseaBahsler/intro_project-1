@@ -1,4 +1,32 @@
+<section class="content hero is-info pl-6 mt-4">
+  <div class="hero-body">
+    <h1 class="title"><%= @cardset.name %></h1>
+  </div>
+</section>
 <div class="container">
-  <h1 class="title"><%= @cardset.name %></h1>
-  <%= render 'displaylocations' %>
+  <%token = "?access_token=pk.eyJ1IjoiYmlnam9obmNlbmEiLCJhIjoiY2xudWtrMGRlMGVtejJxbzJwYXp2cjIxZyJ9.TsO844UtjUD8U1wLd4dW0w"%>
+  <%baseurl = "https://api.mapbox.com/styles/v1/mapbox/streets-v12/static/"%>
+  <!-- Show the locations -->
+  <div class="columns is-multiline">
+    <div class="column is-full mt-6">
+      <h1 class="title">Locations</h1>
+    </div>
+    <% @cardset.locations.each_with_index do |location, idx|%>
+      <div class="column is-one-quarter">
+        <h2 class="subtitle">Location <%= idx + 1 %></h2>
+        <% url = baseurl + location.longitude.to_s + ',' + location.latitude.to_s + ',6/500x300' + token %>
+        <img src=<%= url %> alt=<%= " #{@cardset.name}-location#{idx + 1}"%>>
+      </div>
+    <% end%>
+  </div>
+  <!-- Show the Cards belonging to this set -->
+  <div class="columns is-multiline">
+    <div class="column is-full mt-6">
+      <h1 class="title">Cards belonging to cardset <%= @cardset.name %></h1>
+    </div>
+    <div class="column is-one-fifth">
+      <%= render partial: 'cards/card', collection: @cardset.cards %>
+    </div>
+  </div>
 </div>
+<div class="section"></div>
