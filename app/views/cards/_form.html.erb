@@ -1,4 +1,12 @@
-<%= search_form_for @q, class: 'level' do |f| %>
-  <%= f.search_field @search_by, placeholder: "Search", class: 'level-item' %>
-  <%= f.submit name: 'search', class: 'level-item' %>
+<%# Add set selection dropdown menu for search, adn change a the style %>
+<%= form_tag(cards_path, method: :get, class: 'field is-grouped is-grouped-multiline') do %>
+  <div class="control is-expanded">
+    <%= text_field_tag :search, params[:search], class: 'input is-small', placeholder: 'Search by name, artist, or text' %>
+  </div>
+  <div class="control is-narrow" style="width: 120px;">
+    <%= select_tag :set, options_for_select([['All Sets', '']] + Cardset.all.map { |cardset| [cardset.name, cardset.id] }, params[:set]), class: 'select is-small' %>
+  </div>
+  <div class="control is-narrow">
+    <%= submit_tag 'Search', name: nil, class: 'button is-info is-small' %>
+  </div>
 <% end %>

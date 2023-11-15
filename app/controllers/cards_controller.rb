@@ -1,8 +1,17 @@
 class CardsController < ApplicationController
   def index
-    @q = Card.ransack(params[:q])
-    @cards = @q.result.order(:name).page(params[:page])
-    @search_by = :name_or_artist_or_text_i_cont_any
+    @cards = Card.includes(:cardset, :supertype, :types, :subtypes)
+
+    if params[:search].present?
+      @cards = @cards.where("name LIKE ? OR artist LIKE ? OR text LIKE ?", "%#{params[:search]}%",
+                            "%#{params[:search]}%", "%#{params[:search]}%")
+    end
+
+    if params[:set].present? && params[:set] != "All Sets"
+      @cards = @cards.where(cardset_id: params[:set])
+    end
+
+    @cards = @cards.order(:name).page(params[:page])
   end
 
   def show

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_231_011_171_210) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_171210) do
   create_table "card_subtypes", force: :cascade do |t|
     t.integer "card_id", null: false
     t.integer "subtype_id", null: false
